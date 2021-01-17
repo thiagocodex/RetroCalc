@@ -1,2 +1,2 @@
 # RetroCalc
-A win32 calculator made usin win32api &amp; c++
+A win32 calculator made using win32api &amp; c++
