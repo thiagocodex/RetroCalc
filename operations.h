@@ -18,24 +18,24 @@ double final;
 double var1;
 double var2;
 
+
+
 void typeToTextField(HWND text_field, int wParam) {
 
 	if (operating) {
 		GetWindowTextW(text_field, LPWSTR(buf2), 31);
 		var1 = _wtof(buf2);
 		SetWindowTextW(text_field, LPWSTR(L""));
-		operating = false;
+		
+
 	}
 		GetWindowTextW(text_field, LPWSTR(buf2), 31);
+
 		_snwprintf_s(buf, 31, L"%.16lg", double(wParam));
 
 	if (lstrlenW(buf2) < 22) {
-		if (!wcscmp(buf2, L"0")) {
-			lstrcatW(buf2, buf);
-			SetWindowTextW(text_field, LPWSTR(buf));
-			GetWindowTextW(text_field, LPWSTR(buf), 31);
-			var2 = _wtof(buf);
-		}else {
+		if (wcscmp(buf2, L"0")) {
+
 			lstrcatW(buf2, buf);
 			SetWindowTextW(text_field, LPWSTR(buf2));
 			GetWindowTextW(text_field, LPWSTR(buf2), 31);
@@ -57,6 +57,11 @@ void typeToTextField(HWND text_field, int wParam) {
 				break;
 
 			}
+		}else {
+			lstrcatW(buf2, buf);
+			SetWindowTextW(text_field, LPWSTR(buf));
+			GetWindowTextW(text_field, LPWSTR(buf), 31);
+			var2 = _wtof(buf);
 		}
 	}
 }

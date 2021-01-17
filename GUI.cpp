@@ -54,13 +54,13 @@ bool firstequal;
 
 const char* equalbuf;
 
-HFONT hFont = CreateFont(36, 0, 0, 0, FW_DONTCARE, FALSE, FALSE, FALSE, DEFAULT_CHARSET, OUT_OUTLINE_PRECIS,
+HFONT hFont = CreateFont(24, 0, 0, 0, FW_DONTCARE, FALSE, FALSE, FALSE, DEFAULT_CHARSET, OUT_OUTLINE_PRECIS,
 	CLIP_DEFAULT_PRECIS, CLEARTYPE_QUALITY, VARIABLE_PITCH, TEXT("Consolas"));
 
 HFONT hTextFieldFont = CreateFont(20, 0, 0, 0, FW_DONTCARE, FALSE, FALSE, FALSE, DEFAULT_CHARSET, OUT_OUTLINE_PRECIS,
 	CLIP_DEFAULT_PRECIS, CLEARTYPE_QUALITY, VARIABLE_PITCH, TEXT("Consolas"));
 
-COLORREF color = 0x00623f31;
+COLORREF color = 0x00cccccc;
 
 HBRUSH cr = CreateSolidBrush(color);
 
@@ -176,16 +176,12 @@ LRESULT CALLBACK WindowProc(HWND hwnd, UINT  uMsg, WPARAM wParam, LPARAM lParam)
 		buttonsum = CreateWindowA("BUTTON", "+", WS_VISIBLE | WS_CHILD, 170, 330, 40, 40, hwnd, (HMENU)12, NULL, NULL);
 		buttonsubt = CreateWindowA("BUTTON", "-", WS_VISIBLE | WS_CHILD, 170, 280, 40, 40, hwnd, (HMENU)13, NULL, NULL);
 		buttonequal = CreateWindowA("BUTTON", "=", WS_VISIBLE | WS_CHILD, 220, 280, 40, 90, hwnd, (HMENU)14, NULL, NULL);
-
 		buttonclear = CreateWindowA("BUTTON", "C", WS_VISIBLE | WS_CHILD, 120, 130, 40, 40, hwnd, (HMENU)15, NULL, NULL);
-
-
 		buttonerase = CreateWindowExW(0, L"BUTTON", L"⇤", WS_VISIBLE | WS_CHILD, 20, 130, 40, 40, hwnd, (HMENU)20, NULL, NULL);
 		buttonplusminus = CreateWindowExW(0, L"BUTTON", L"±", WS_VISIBLE | WS_CHILD, 170, 130, 40, 40, hwnd, (HMENU)20, NULL, NULL);
 		buttonsqrt = CreateWindowExW(0, L"BUTTON", L"√", WS_VISIBLE | WS_CHILD, 220, 130, 40, 40, hwnd, (HMENU)20, NULL, NULL);
 		buttonperc = CreateWindowExW(0, L"BUTTON", L"%", WS_VISIBLE | WS_CHILD, 220, 180, 40, 40, hwnd, (HMENU)20, NULL, NULL);
 		buttoncomma = CreateWindowExW(0, L"BUTTON", L",", WS_VISIBLE | WS_CHILD, 120, 330, 40, 40, hwnd, (HMENU)20, NULL, NULL);
-
 		buttonmc = CreateWindowA("BUTTON", "MC", WS_VISIBLE | WS_CHILD, 70, 80, 40, 40, hwnd, (HMENU)16, NULL, NULL);
 		buttonmr = CreateWindowA("BUTTON", "MR", WS_VISIBLE | WS_CHILD, 20, 80, 40, 40, hwnd, (HMENU)17, NULL, NULL);
 		buttonms = CreateWindowA("BUTTON", "MS", WS_VISIBLE | WS_CHILD, 120, 80, 40, 40, hwnd, (HMENU)18, NULL, NULL);
@@ -197,7 +193,7 @@ LRESULT CALLBACK WindowProc(HWND hwnd, UINT  uMsg, WPARAM wParam, LPARAM lParam)
 		{
 			std::list<HWND> hDigitButtons =
 		
-			{ button0, button1, button2, button3, button4, button5, button6, button7, button8, button9, buttonmult, buttondiv, buttonsum, buttonsubt, buttonequal, text, buttonclear, buttonerase, buttonplusminus, buttonsqrt, buttonperc, buttoncomma };
+			{ button0,button1,button2,button3,button4,button5,button6,button7,button8,button9,buttonmult,buttondiv,buttonsum,buttonsubt,buttonequal,buttonclear,buttonerase,buttonplusminus,buttonsqrt,buttonperc,buttoncomma,buttonmc,buttonmr,buttonms,buttonmplus,buttonmminus,buttonce,buttonumbarraxis };
 
 			for (auto it = hDigitButtons.begin(); it != hDigitButtons.end(); it++) {
 				SendMessage(*it, WM_SETFONT, WPARAM(hFont), TRUE);
